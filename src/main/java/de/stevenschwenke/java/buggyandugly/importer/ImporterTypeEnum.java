@@ -1,5 +1,16 @@
 package de.stevenschwenke.java.buggyandugly.importer;
 
+/**
+ * ImporterTypeEnum
+ * 
+ * @deprecated As of Refactor 0.1/2019-03-24/Refactoring/micro-refactoring and Version 1.1-SNAPSHOT Not more use please.
+ * This class replaced by {@link de.stevenschwenke.java.buggyandugly.metadata.MetaDataResources} 
+ * 
+ * 
+ * @author samuel.mofrad
+ *
+ */
+@Deprecated
 public enum ImporterTypeEnum {
 
     // other entries omitted for imports that aren't used in this demo

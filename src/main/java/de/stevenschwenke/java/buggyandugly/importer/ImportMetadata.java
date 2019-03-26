@@ -2,6 +2,17 @@ package de.stevenschwenke.java.buggyandugly.importer;
 
 import java.util.Date;
 
+/**
+ * ImportMetadata
+ * 
+ * @deprecated As of Refactor 0.1/2019-03-24/Refactoring/micro-refactoring and Version 1.1-SNAPSHOT Not more use please.
+ * This class replaced by {@link de.stevenschwenke.java.buggyandugly.metadata.MetaData}
+ * 
+ * 
+ * @author samuel.mofrad
+ *
+ */
+@Deprecated
 public class ImportMetadata {
 
     private String country;
