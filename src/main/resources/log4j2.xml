@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+  <Properties>
+  	<property name="LOG_LEVEL">info</property>
+  	<Property name="LOG_PATH">logs</Property>
+  	<Property name="LOG_FILE">${env:LOG_PATH}/service.log</Property>
+	<Property name="LOG_PATTERN">%d %-5p [%X{user}:%X{requestId}] [%t] %-40.40c{1.} : %m%n</Property>
+  </Properties>	
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT" follow="true">
+	   <PatternLayout pattern="${env:LOG_PATTERN}" />
+	</Console>
+	<RollingRandomAccessFile name="File"
+		fileName="${env:LOG_FILE}"
+		filePattern="${env:LOG_PATH}/$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log.gz">
+		<PatternLayout>
+			<Pattern>${LOG_PATTERN}</Pattern>
+		</PatternLayout>
+		<Policies>
+			<SizeBasedTriggeringPolicy size="10 MB" />
+		</Policies>
+	</RollingRandomAccessFile>
+  </Appenders>
+  <Loggers>
+    <Logger name="de.stevenschwenke.java.buggyandugly" level="error"/>
+    <Logger name="de.stevenschwenke.java.buggyandugly" level="info"/>
+    <Root level="${env:LOG_LEVEL}">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="File" />
+    </Root>
+  </Loggers>
+</Configuration>

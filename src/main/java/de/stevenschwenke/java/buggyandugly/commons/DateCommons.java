@@ -4,8 +4,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class DateCommons {
 
+	private static final Logger LOGGER = LogManager.getLogger();
+	
 	/**
      * Format of String: yyyy-mm-dd'T'HH:mm:ss
      */
@@ -15,7 +20,7 @@ public class DateCommons {
         try {
             return sdf.parse(importantPartOfDate);
         } catch (final ParseException e) {
-//            LOG.error("Could not parse from String to Date", e);
+        	LOGGER.error("Could not parse from String to Date", e);
         }
         return new Date();
     }
@@ -28,7 +33,7 @@ public class DateCommons {
         try {
             return sdf.parse(year);
         } catch (ParseException e) {
-//            LOG.error("Could not parse from String to Date", e);
+        	LOGGER.error("Could not parse from String to Date", e);
         }
         return null;
     }
